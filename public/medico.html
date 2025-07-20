@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Panel Médico - Agenda de Hospitalización</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1>👨‍⚕️ Panel Médico</h1>
+        <p>Visualización de citas programadas</p>
+        <nav>
+          <a href="/">Agendar Cita</a>
+          <a href="/medico" class="active">Panel Médico</a>
+        </nav>
+      </header>
+
+      <main>
+        <div class="stats-container">
+          <div class="stat-card">
+            <h3>📅 Citas Hoy</h3>
+            <div class="stat-number" id="citasHoy">0</div>
+          </div>
+          <div class="stat-card">
+            <h3>📋 Total Pendientes</h3>
+            <div class="stat-number" id="citasPendientes">0</div>
+          </div>
+          <div class="stat-card">
+            <h3>👥 Total Registradas</h3>
+            <div class="stat-number" id="totalCitas">0</div>
+          </div>
+          <div class="stat-card">
+            <h3>👨‍⚕️ Total Médicos</h3>
+            <div class="stat-number" id="totalMedicos">5</div>
+          </div>
+        </div>
+
+        <div class="filters-container">
+          <h2>📅 Seleccionar Fecha</h2>
+
+          <div class="calendar-container">
+            <div class="calendar-header">
+              <button type="button" id="prevMonth" class="calendar-nav">
+                ‹
+              </button>
+              <h3 id="currentMonth">Julio 2025</h3>
+              <button type="button" id="nextMonth" class="calendar-nav">
+                ›
+              </button>
+            </div>
+
+            <div class="calendar-weekdays">
+              <div class="weekday">Dom</div>
+              <div class="weekday">Lun</div>
+              <div class="weekday">Mar</div>
+              <div class="weekday">Mié</div>
+              <div class="weekday">Jue</div>
+              <div class="weekday">Vie</div>
+              <div class="weekday">Sáb</div>
+            </div>
+
+            <div class="calendar-days" id="calendarDays">
+            </div>
+          </div>
+
+          <div class="filters">
+            <div class="form-group">
+              <label for="fechaSeleccionada">Fecha Seleccionada:</label>
+              <input
+                type="text"
+                id="fechaSeleccionada"
+                readonly
+                placeholder="Seleccione una fecha en el calendario"
+              />
+            </div>
+            <button type="button" id="btnFiltrar" class="btn-secondary">
+              🔍 Filtrar por Fecha
+            </button>
+            <button type="button" id="btnHoy" class="btn-secondary">
+              📅 Hoy
+            </button>
+            <button type="button" id="btnLimpiar" class="btn-secondary">
+              🗑️ Limpiar Filtros
+            </button>
+          </div>
+        </div>
+
+        <div class="citas-container">
+          <h2>Citas Programadas</h2>
+          <div id="loadingCitas" class="loading" style="display: none">
+            <p>⏳ Cargando citas...</p>
+          </div>
+          <div id="citasList" class="citas-list">
+          </div>
+          <div id="noCitas" class="no-data" style="display: none">
+            <p>📭 No hay citas programadas para la fecha seleccionada</p>
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <script src="medico-simple.js"></script>
+  </body>
+</html>

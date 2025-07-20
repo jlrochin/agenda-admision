@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Agenda de Hospitalización</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1>🏥 Agenda de Hospitalización</h1>
+        <p>Sistema de agendamiento de citas médicas</p>
+        <nav>
+          <a href="/" class="active">Agendar Cita</a>
+          <a href="/medico">Panel Médico</a>
+        </nav>
+      </header>
+
+      <main>
+        <div class="form-container">
+          <form id="agendarCitaForm" class="cita-form">
+            <h2>📋 Agendar Nueva Cita</h2>
+
+            <div class="form-group">
+              <label for="numeroExpediente">📄 Número de Expediente:</label>
+              <input
+                type="text"
+                id="numeroExpediente"
+                name="numeroExpediente"
+                placeholder="Ej: EXP-2025-001234"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="curp">🆔 CURP:</label>
+              <input
+                type="text"
+                id="curp"
+                name="curp"
+                placeholder="18 caracteres del CURP"
+                maxlength="18"
+                pattern="[A-Z]{4}[0-9]{6}[HM][A-Z]{5}[0-9A-Z][0-9]"
+                required
+              />
+              <small class="help-text">Formato: AAAA######HDFCCC##</small>
+            </div>
+
+            <div class="form-group">
+              <label for="ordenMedica">📷 Orden Médica:</label>
+              <div class="file-upload-options">
+                <div class="upload-option">
+                  <input
+                    type="file"
+                    id="tomarFoto"
+                    name="tomarFoto"
+                    accept="image/*"
+                    capture="environment"
+                    style="display: none"
+                  />
+                  <button type="button" id="btnTomarFoto" class="btn-camera">
+                    📷 Tomar Foto
+                  </button>
+                </div>
+
+                <div class="upload-option">
+                  <input
+                    type="file"
+                    id="subirArchivo"
+                    name="subirArchivo"
+                    accept="image/*"
+                    style="display: none"
+                  />
+                  <button type="button" id="btnSubirArchivo" class="btn-upload">
+                    📁 Subir Archivo
+                  </button>
+                </div>
+              </div>
+
+              <div
+                id="imagePreview"
+                class="image-preview"
+                style="display: none"
+              >
+                <img id="previewImg" src="" alt="Vista previa" />
+                <button type="button" id="removeImage" class="btn-remove">
+                  🗑️ Quitar
+                </button>
+              </div>
+
+              <div class="upload-info">
+                <small>Formatos aceptados: JPG, PNG, HEIC</small>
+              </div>
+            </div>
+
+            <div class="form-actions">
+              <button type="submit" class="btn-primary">✅ Agendar Cita</button>
+              <button type="reset" class="btn-secondary">
+                🔄 Limpiar Formulario
+              </button>
+            </div>
+          </form>
+        </div>
+      </main>
+    </div>
+
+    <div id="modalOverlay" class="modal-overlay" style="display: none">
+      <div class="modal">
+        <div class="modal-header">
+          <h3 id="modalTitle">✅ Cita Agendada</h3>
+        </div>
+        <div class="modal-body">
+          <p id="modalMessage">Su cita ha sido agendada exitosamente.</p>
+          <div id="citaInfo" class="cita-info" style="display: none">
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button id="modalClose" class="btn-primary">Cerrar</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="script-simple.js"></script>
+  </body>
+</html>

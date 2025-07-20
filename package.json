@@ -1,0 +1,28 @@
+{
+  "name": "agenda-hospitalizacion",
+  "version": "1.0.0",
+  "description": "Sistema de agenda de hospitalización para gestión de citas médicas",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "agenda",
+    "hospital",
+    "citas",
+    "medicos",
+    "pacientes"
+  ],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "body-parser": "^2.2.0",
+    "cors": "^2.8.5",
+    "express": "^5.1.0",
+    "multer": "^2.0.2",
+    "sqlite3": "^5.1.7"
+  }
+}
