@@ -15,14 +15,33 @@ Sistema web para gestionar citas hospitalarias con formulario simplificado.
 - Node.js 14+
 - npm
 
-## ⚡ Instalación
+## 📥 Clonar e Instalar
 
 ```bash
+# Clonar el repositorio
+git clone https://github.com/jlrochin/agenda-admision.git
+
+# Entrar al directorio
+cd agenda-admision
+
+# Instalar dependencias
 npm install
+```
+
+## ⚡ Ejecutar en local
+
+```bash
+# Iniciar servidor
+npm start
+
+# O alternativamente
 node server.js
 ```
 
-Abrir: http://localhost:3000
+**Abrir navegador en:** http://localhost:3000
+
+- **Pacientes**: http://localhost:3000 (formulario de citas)
+- **Médicos**: http://localhost:3000/medico (panel administrativo)
 
 ## 📁 Estructura
 
